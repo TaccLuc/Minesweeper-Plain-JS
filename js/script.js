@@ -7,9 +7,8 @@ const resetButton = document.getElementById('resetButton');
 const cellContainer = document.querySelector('.cell_container');
 const scoreBoard = document.querySelector('.scoreBoard');
 
-// SCORE + BOMBS
+// SCORE
 let score = 0;
-let bombs = [];
 
 // DIFFICULTY BUTTONS
 let difficulty = 0;
@@ -82,7 +81,7 @@ function generateTable(x) {
                 score++;
                 clicked = true;
                 document.getElementById('score').innerHTML = score;
-                mineSweeper(bombs.includes(i - Math.sqrt(x)), bombs.includes(i + (Math.sqrt(x))), bombs.includes(i + 1), bombs.includes(i - 1), this)
+                mineSweeper(bombs.includes(i - Math.sqrt(x)), bombs.includes(i + (Math.sqrt(x))), bombs.includes(i + 1), bombs.includes(i - 1), this, Math.sqrt(x), bombs, i)
             }
         });
         
@@ -114,17 +113,47 @@ function gameLost(x, y, singleElement) {
     }
 }
 
-function mineSweeper(up, down, right, left, element, x){
-    if(down && up && right && left){
-        element.innerHTML = 4;
+function mineSweeper(up, down, right, left, element, sqrtX, array, i){
+    if(down && up && right && left){   
+        if(endRowCheck(i, sqrtX, array)){
+            element.innerHTML = 3;
+        }
+        else{
+            element.innerHTML = 4;
+        }
     }
     else if(down && left && up || down && right && up || down &&  right && left || up &&  right && left){
-        element.innerHTML = 3;
+        if(endRowCheck(i, sqrtX, array)){
+            element.innerHTML = 2;
+        }
+        else{
+            element.innerHTML = 3;
+        }
     }
-    else if((down && left || up && right) || (down && right || up && left) || (down && up || right && left) ){
-        element.innerHTML = 2;
+    else if((down && left || up && right) || (down && right || up && left) || (down && up || right && left) ){  
+        if(endRowCheck(i, sqrtX, array)){
+            element.innerHTML = 1;
+        }
+        else{
+            element.innerHTML = 2;
+        }
     }
-    else if (down || up || right || left){
-        element.innerHTML = 1;
+    else if (down || up || right || left){ 
+        if(endRowCheck(i, sqrtX, array)){
+            element.innerHTML = '';
+        }
+        else{
+            element.innerHTML = 1;
+        }
     } 
+}
+
+function endRowCheck(i, sqrtX, array){
+    for (let j = 0; j <= sqrtX; j++) {
+        let check = false;
+        if (i == sqrtX * j && array.includes(i + 1) || i == (sqrtX * j) + 1 && array.includes(i - 1)) {
+            check = true;
+            return check;
+        } 
+    }
 }
