@@ -59,3 +59,19 @@ function generateTable(x) {
     }
 }
 
+function randomNumber (min, max){
+   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomNotRepeatedNumber(x){
+    const randomNumbersArray = [];
+    while (randomNumbersArray.length < x) {
+        const aNumber = randomNumber(1, x);
+    
+        if (!randomNumbersArray.includes(aNumber)) {
+            randomNumbersArray.push(aNumber);
+        }
+    }
+    return randomNumbersArray;
+}
+
