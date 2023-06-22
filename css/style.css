@@ -1,0 +1,72 @@
+/* 
+    CONTAINERS
+*/
+
+body{
+    font-family: 'VT323', monospace;
+    background-image: url('https://images.gamebanana.com/img/ss/mods/6302c5df27486.jpg');
+}
+
+.vh_15{
+    height: 15vh;
+}
+
+.vh_85{
+    height: 85vh;
+}
+
+.cell_container{
+    width: 750px;
+    height: 750px;
+}
+
+.scoreBoard{
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 200px;
+    height: 300px;
+    text-align: center;
+    background-color: #b3c8db;
+    border: 2px solid #FBCDD7;
+}
+
+/* 
+    CELLS
+*/
+.cell_container > .active{
+    background-color: transparent;
+}
+
+.cell{
+    text-align: center;
+    background-color: #b3c8db;
+    border: 2px solid #FBCDD7;
+    cursor: pointer;
+}
+
+.cell_100{
+    width: calc(750px / 10);
+    height: calc(750px / 10);
+    line-height: calc(750px / 10);
+
+}
+
+.cell_81{
+    width: calc(750px / 9);
+    height: calc(750px / 9);
+    line-height: calc(750px / 9);
+}
+
+.cell_49{
+    width: calc(750px / 7);
+    height: calc(750px / 7);
+    line-height: calc(750px / 7);
+}
+
+/* 
+    SCORE
+*/
+.scoreBoard h1{
+    border-bottom: 2px solid #FBCDD7;
+}
