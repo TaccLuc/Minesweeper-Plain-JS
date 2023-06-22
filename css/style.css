@@ -39,6 +39,13 @@ body{
     background-color: #8697aa98;
 }
 
+.cell_container > .lost{
+    background-color: rgba(150, 121, 121, 0.685);
+}
+
+.cell_container > .won{
+    background-color: rgba(129, 228, 126, 0.685);
+}
 .cell{
     text-align: center;
     background-color: #b3c8db;
@@ -67,9 +74,6 @@ body{
     line-height: calc(750px / 7);
 }
 
-.cell_container > .lost{
-    background-color: rgba(150, 121, 121, 0.685);
-}
 
 /* 
     SCORE

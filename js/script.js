@@ -72,10 +72,12 @@ function generateTable(x) {
 
         let clicked = false;
         cell.addEventListener('click', function(){
-            gameLost(i, bombs, cell)
+            
             this.classList.add('active');
             if(score === x - 17 || bombs.includes(i)){
                 cellContainer.classList.add('endBoard');
+                gameLost(i, bombs, cell)
+                gameWon(score, x, cell)
             }
             else if (!clicked && !bombs.includes(i)) {
                 score++;
@@ -110,6 +112,14 @@ function gameLost(x, y, singleElement) {
         singleElement.innerHTML = "<img src='img/skull.jpg' width='50px' height='50px'>";
         document.getElementById('score').innerHTML += 
         '<div class="text-danger text-decoration-underline">GAME OVER</div>';
+    }
+}
+function gameWon(score, x, singleElement) {
+    if (score == x - 17) {
+        singleElement.classList.add('won');
+        singleElement.innerHTML = "<img src='img/heart.png' width='50px' height='50px'>";
+        document.getElementById('score').innerHTML += 
+        '<div class="text-success text-decoration-underline">HAI VINTO!</div>';
     }
 }
 
