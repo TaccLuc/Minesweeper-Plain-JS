@@ -72,10 +72,16 @@ body{
 /* 
     SCORE
 */
+
+#score{
+    font-size: 4rem;
+    padding-top: 50px;
+}
 .scoreBoard h1{
     border-bottom: 2px solid #FBCDD7;
+    padding-top: 20px;
 }
 
-.lostBoard{
+.endBoard{
     pointer-events: none;
 }
