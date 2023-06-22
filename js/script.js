@@ -50,6 +50,7 @@ resetButton.addEventListener('click', function(){
     cellContainer.innerHTML = '';
     difficulty = 0;
     score = 0;
+    cellContainer.classList.remove('lostBoard');
 });
 
 // FUNCTIONS
@@ -64,10 +65,7 @@ function generateTable(x) {
             comparison(i, bombs, cell)
             this.classList.add('active');
             if(score === x - 17 || bombs.includes(i)){
-                const gameOverCell = document.querySelectorAll('.active');
-                gameOverCell.forEach((cell) => {
-                    cell.classList.remove('active');
-                  });
+                cellContainer.classList.add('lostBoard');
             }
             else if (!clicked && !bombs.includes(i)) {
                 score++;

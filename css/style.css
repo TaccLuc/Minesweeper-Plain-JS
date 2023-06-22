@@ -75,3 +75,7 @@ body{
 .scoreBoard h1{
     border-bottom: 2px solid #FBCDD7;
 }
+
+.lostBoard{
+    pointer-events: none;
+}
