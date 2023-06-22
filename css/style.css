@@ -44,6 +44,8 @@ body{
     background-color: #b3c8db;
     border: 2px solid #FBCDD7;
     cursor: pointer;
+    font-size: 3rem;
+    line-height: 3rem;
 }
 
 .cell_100{
@@ -66,8 +68,7 @@ body{
 }
 
 .cell_container > .lost{
-    background-color: rgb(201, 7, 7);
-    color: white;
+    background-color: rgba(150, 121, 121, 0.685);
 }
 
 /* 

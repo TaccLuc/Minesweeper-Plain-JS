@@ -58,6 +58,9 @@ resetButton.addEventListener('click', function(){
     score = 0;
     document.getElementById('score').innerHTML = score;
     cellContainer.classList.remove('endBoard');
+    difficulty100.classList.remove('buttonActive');
+    difficulty81.classList.remove('buttonActive');
+    difficulty49.classList.remove('buttonActive');
 });
 
 // FUNCTIONS
@@ -79,6 +82,23 @@ function generateTable(x) {
                 score++;
                 clicked = true;
                 document.getElementById('score').innerHTML = score;
+                const up = bombs.includes(i - Math.sqrt(x));
+                const down = bombs.includes(i + (Math.sqrt(x)));
+                const right = bombs.includes(i + 1);
+                const left = bombs.includes(i - 1);
+
+                if(down && up && right && left){
+                    this.innerHTML = 4;
+                }
+                else if(down && left && up || down && right && up || down &&  right && left || up &&  right && left){
+                    this.innerHTML = 3;
+                }
+                else if((down && left || up && right) || (down && right || up && left) || (down && up || right && left) ){
+                    this.innerHTML = 2;
+                }
+                else if (down || up || right || left){
+                    this.innerHTML = 1;
+                } 
             }
         });
         
@@ -104,7 +124,7 @@ function randomNotRepeatedNumber(x, y, randomNumbersArray){
 function gameLost(x, y, singleElement) {
     if (y.includes(x)) {
         singleElement.classList.add('lost');
-        singleElement.innerHTML = 'HAI PERSO!';
+        singleElement.innerHTML = "<img src='img/skull.jpg' width='50px' height='50px'>";
         document.getElementById('score').innerHTML += 
         '<div class="text-danger text-decoration-underline">GAME OVER</div>';
     }
