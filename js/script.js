@@ -46,6 +46,9 @@ playButton.addEventListener('click', function(){
         randomNotRepeatedNumber(16, difficulty, bombs);
         console.log(bombs);
         generateTable(difficulty); 
+        score = 0;
+        document.getElementById('score').innerHTML = score;
+        cellContainer.classList.remove('endBoard');
     }
 
 });
