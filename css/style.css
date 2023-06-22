@@ -64,6 +64,11 @@ body{
     line-height: calc(750px / 7);
 }
 
+.cell_container > .lost{
+    background-color: rgb(201, 7, 7);
+    color: white;
+}
+
 /* 
     SCORE
 */

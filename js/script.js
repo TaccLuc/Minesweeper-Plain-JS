@@ -85,7 +85,8 @@ function randomNotRepeatedNumber(x, y, randomNumbersArray){
 
 function comparison(x, y, singleElement) {
     if (y.includes(x)) {
-        singleElement.innerHTML = 'PERSO!';
+        singleElement.classList.add('lost');
+        singleElement.innerHTML = 'HAI PERSO!';
     }
 }
 
