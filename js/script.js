@@ -4,7 +4,11 @@ const difficulty81 = document.getElementById('difficulty_81');
 const difficulty49 = document.getElementById('difficulty_49');
 const resetButton = document.getElementById('resetButton');
 const cellContainer = document.querySelector('.cell_container');
+const scoreBoard = document.querySelector('.scoreBoard');
 const bombs = [];
+
+// SCORE
+let score = 0;
 
 // DIFFICULTY BUTTONS
 let difficulty = 0;
@@ -45,20 +49,32 @@ playButton.addEventListener('click', function(){
 resetButton.addEventListener('click', function(){
     cellContainer.innerHTML = '';
     difficulty = 0;
+    score = 0;
 });
 
 // FUNCTIONS
-
-function generateTable(x) {
-   
+function generateTable(x) { 
     for (let i = 1; i <= x; i++) {
-
         const cell = document.createElement('div');
         cell.classList.add('cell', 'cell_' + x);
         cell.innerHTML = i;
+        let clicked = false;
+        
         cell.addEventListener('click', function(){
-            this.classList.toggle('active');
             comparison(i, bombs, cell)
+            this.classList.add('active');
+            if(score === x - 17 || bombs.includes(i)){
+                const gameOverCell = document.querySelectorAll('.active');
+                gameOverCell.forEach((cell) => {
+                    cell.classList.remove('active');
+                  });
+            }
+            else if (!clicked && !bombs.includes(i)) {
+                score++;
+                clicked = true;
+                document.getElementById('score').innerHTML = score;
+            }
+
         });
         cellContainer.append(cell);
     }
@@ -69,7 +85,6 @@ function randomNumber (min, max){
 }
 
 function randomNotRepeatedNumber(x, y, randomNumbersArray){
-
     do{
         const aNumber = randomNumber(1, y);
     
