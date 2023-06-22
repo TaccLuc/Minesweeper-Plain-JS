@@ -36,7 +36,7 @@ body{
     CELLS
 */
 .cell_container > .active{
-    background-color: transparent;
+    background-color: #8697aa98;
 }
 
 .cell{

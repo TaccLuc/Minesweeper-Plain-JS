@@ -82,23 +82,7 @@ function generateTable(x) {
                 score++;
                 clicked = true;
                 document.getElementById('score').innerHTML = score;
-                const up = bombs.includes(i - Math.sqrt(x));
-                const down = bombs.includes(i + (Math.sqrt(x)));
-                const right = bombs.includes(i + 1);
-                const left = bombs.includes(i - 1);
-
-                if(down && up && right && left){
-                    this.innerHTML = 4;
-                }
-                else if(down && left && up || down && right && up || down &&  right && left || up &&  right && left){
-                    this.innerHTML = 3;
-                }
-                else if((down && left || up && right) || (down && right || up && left) || (down && up || right && left) ){
-                    this.innerHTML = 2;
-                }
-                else if (down || up || right || left){
-                    this.innerHTML = 1;
-                } 
+                mineSweeper(bombs.includes(i - Math.sqrt(x)), bombs.includes(i + (Math.sqrt(x))), bombs.includes(i + 1), bombs.includes(i - 1), this)
             }
         });
         
@@ -130,3 +114,17 @@ function gameLost(x, y, singleElement) {
     }
 }
 
+function mineSweeper(up, down, right, left, element, x){
+    if(down && up && right && left){
+        element.innerHTML = 4;
+    }
+    else if(down && left && up || down && right && up || down &&  right && left || up &&  right && left){
+        element.innerHTML = 3;
+    }
+    else if((down && left || up && right) || (down && right || up && left) || (down && up || right && left) ){
+        element.innerHTML = 2;
+    }
+    else if (down || up || right || left){
+        element.innerHTML = 1;
+    } 
+}
