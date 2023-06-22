@@ -29,6 +29,7 @@ body{
     text-align: center;
     background-color: #b3c8db;
     border: 2px solid #FBCDD7;
+    padding: 0;
 }
 
 /* 
@@ -74,8 +75,8 @@ body{
 */
 
 #score{
-    font-size: 4rem;
-    padding-top: 50px;
+    font-size: 3rem;
+    padding-top: 30px;
 }
 .scoreBoard h1{
     border-bottom: 2px solid #FBCDD7;
@@ -84,4 +85,12 @@ body{
 
 .endBoard{
     pointer-events: none;
+}
+
+/* 
+    BUTTONS
+*/
+
+.buttonActive{
+    background-color: #5B6EA8;
 }

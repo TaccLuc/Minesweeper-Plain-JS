@@ -16,14 +16,23 @@ let difficulty = 0;
 
 difficulty100.addEventListener('click', function(){
     difficulty = 100;
+    difficulty100.classList.add('buttonActive');
+    difficulty81.classList.remove('buttonActive');
+    difficulty49.classList.remove('buttonActive');
 });
 
 difficulty81.addEventListener('click', function(){
     difficulty = 81;
+    difficulty81.classList.add('buttonActive');
+    difficulty100.classList.remove('buttonActive');
+    difficulty49.classList.remove('buttonActive');
 });
 
 difficulty49.addEventListener('click', function(){
     difficulty = 49;
+    difficulty49.classList.add('buttonActive');
+    difficulty81.classList.remove('buttonActive');
+    difficulty100.classList.remove('buttonActive');
 });
 
 // PLAY BUTTON
@@ -57,7 +66,6 @@ function generateTable(x) {
 
         const cell = document.createElement('div');
         cell.classList.add('cell', 'cell_' + x);
-        cell.innerHTML = i;
         cellContainer.append(cell);
 
         let clicked = false;
@@ -97,6 +105,8 @@ function gameLost(x, y, singleElement) {
     if (y.includes(x)) {
         singleElement.classList.add('lost');
         singleElement.innerHTML = 'HAI PERSO!';
+        document.getElementById('score').innerHTML += 
+        '<div class="text-danger text-decoration-underline">GAME OVER</div>';
     }
 }
 
