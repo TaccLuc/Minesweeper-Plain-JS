@@ -65,13 +65,18 @@ function randomNumber (min, max){
 
 function randomNotRepeatedNumber(x){
     const randomNumbersArray = [];
-    while (randomNumbersArray.length < x) {
+    
+    do{
         const aNumber = randomNumber(1, x);
     
         if (!randomNumbersArray.includes(aNumber)) {
             randomNumbersArray.push(aNumber);
         }
     }
+
+    while (randomNumbersArray.length < x) {
+    }
+
     return randomNumbersArray;
 }
 
