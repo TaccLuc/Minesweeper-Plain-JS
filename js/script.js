@@ -44,7 +44,6 @@ playButton.addEventListener('click', function(){
         cellContainer.innerHTML = '';
         bombs = [];
         randomNotRepeatedNumber(16, difficulty, bombs);
-        console.log(bombs);
         generateTable(difficulty); 
         score = 0;
         document.getElementById('score').innerHTML = score;
